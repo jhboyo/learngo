@@ -2,7 +2,8 @@ package main
 
 import (
 	"fmt"
-	"learngo/accounts"
+	//"learngo/accounts"
+	"learngo/mydict"
 )
 
 //TIP <p>To run your code, right-click the code and select <b>Run</b>.</p> <p>Alternatively, click
@@ -10,13 +11,24 @@ import (
 
 func main() {
 
-	account := accounts.NewAccount("nico")
-	account.Deposit(10)
-	fmt.Println(account.Balance())
+		dictionary := mydict.Dictionary{"first": "First word"}
+		definition, err := dictionary.Search("first")
 
-	err := account.Withdraw(10)
-	if err != nil {
-		fmt.Println(err)
-	}
-	fmt.Println(account.Balance())
+		if err != nil {
+			fmt.Println(err)
+		} else {
+			fmt.Println(definition)
+		}
+ 		
+
+
+	// account := accounts.NewAccount("nico")
+	// account.Deposit(10)
+	// fmt.Println(account)
+
+	// err := account.Withdraw(10)
+	// if err != nil {
+	// 	fmt.Println(err)
+	// }
+	// fmt.Println(account.Balance())
 }
